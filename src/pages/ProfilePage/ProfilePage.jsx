@@ -4,6 +4,8 @@ import axios from "axios";
 
 import { AuthContext } from "../../context/auth.context";
 
+import './ProfilePage.css';
+
 function ProfilePage() {
   const navigate = useNavigate();
   const { user, logOutUser } = useContext(AuthContext);
@@ -60,57 +62,53 @@ function ProfilePage() {
   }, [setUser]);
 
   return (
-    <div>
-      <h1>My bio</h1>
-      <div className="">
-        <div className="">
+    <div className="me_profile">
+      <div className="profile">
+        <div className="profile_container">
+          <h1>Mi perfil</h1>
           <div className="">
             <div className="">
               <div className="">
-                <p>Account Details</p>
+                <p>Datos personales del usuario</p>
               </div>
-              <div>
+              {/* <div>
                 <button
                   type="button"
                   className=""
                   onClick={() => navigate("/editProfile")}
                 >
-                  Edit
+                  Editar
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className="">
               <div className="">
-                <div className="">
-                  <label className="" htmlFor="inputFirstName">
-                    Name
-                  </label>
-                  <h5 className="">{user.name}</h5>
-                </div>
+                <label className="" htmlFor="inputFirstName">
+                  Nombre:
+                </label>
+                <h5 className="">{user.name}</h5>
               </div>
               <div className="">
                 <div className="">
                   <label className="" htmlFor="inputEmailAddress">
-                    Email address
+                    Correo electrónico:
                   </label>
                   <h5 className="">{user.email}</h5>
                 </div>
                 <div className="">
                   <label className="" htmlFor="inputPassword">
-                    Password
+                    Contraseña:
                   </label>
                   <h5 className="">***********</h5>
                 </div>
               </div>
               <div className="">
-                <div>
-                  <p>{user.diagnosis}</p>
-                </div>
+                <p>{user.diagnosis}</p>
               </div>
             </div>
             <div>
               <button
-                className=""
+                className="header_button"
                 type="button"
                 onClick={handleGenerateDiagnosis}
               >
@@ -123,10 +121,10 @@ function ProfilePage() {
                 </div>
               )}
             </div>
+            <button onClick={handleDelete} className="header_button delete_acc">Eliminar cuenta.</button>
           </div>
         </div>
       </div>
-      <button onClick={handleDelete}>Eliminar cuenta.</button>
     </div>
   );
 }

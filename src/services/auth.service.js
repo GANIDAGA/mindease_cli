@@ -3,7 +3,7 @@ import axios from "axios";
 class AuthService {
   constructor() {
     this.api = axios.create({
-      baseURL:"http://localhost:5005",
+      baseURL:"https://mindeaseserv-production.up.railway.app/",
     });
     this.api.interceptors.request.use((config) => {
       const storedToken = localStorage.getItem("authToken");

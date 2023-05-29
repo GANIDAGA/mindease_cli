@@ -1,0 +1,11 @@
+.homePage_main {
+    width: 100%;
+}
+
+.homePage {
+    max-width: calc(1080px + 32px);
+    position: relative;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
